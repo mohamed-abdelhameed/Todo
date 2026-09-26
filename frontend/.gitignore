@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+out-tsc
+.angular
+
+# Temp / test / coverage
+/tmp
+/coverage
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db

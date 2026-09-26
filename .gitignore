@@ -1,0 +1,29 @@
+# Java / Maven
+target/
+*.class
+
+# Node / Angular caches
+.angular/
+
+# Logs
+*.log
+
+# Editor / IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+nbproject/private/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment and secrets
+.env
+.env.*

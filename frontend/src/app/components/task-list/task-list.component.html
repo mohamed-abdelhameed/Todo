@@ -1,0 +1,42 @@
+<div class="task-list-container">
+  <app-task-form
+    [editingTask]="editingTask"
+    (saved)="handleSaved()"
+    (cancelEdit)="handleCancelEdit()"
+  ></app-task-form>
+
+  <div class="filters">
+    <button
+      [class.active]="filter === 'all'"
+      (click)="setFilter('all')"
+    >All</button>
+    <button
+      [class.active]="filter === 'active'"
+      (click)="setFilter('active')"
+    >Active</button>
+    <button
+      [class.active]="filter === 'completed'"
+      (click)="setFilter('completed')"
+    >Completed</button>
+  </div>
+
+  <ul class="task-list" *ngIf="tasks.length > 0; else empty">
+    <li *ngFor="let task of tasks" class="task-item" [class.completed]="task.completed">
+      <input
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleComplete(task)"
+      />
+      <span class="task-title">{{ task.title }}</span>
+      <span class="task-status">{{ task.completed ? 'Done' : 'Pending' }}</span>
+      <div class="task-actions">
+        <button class="edit-btn" (click)="startEdit(task)">Edit</button>
+        <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #empty>
+    <p class="empty-message">No tasks found.</p>
+  </ng-template>
+</div>

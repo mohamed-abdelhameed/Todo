@@ -1,0 +1,17 @@
+<form (ngSubmit)="submit()" class="task-form">
+  <input
+    type="text"
+    [(ngModel)]="title"
+    name="title"
+    placeholder="{{ editingTask ? 'Edit task...' : 'Add a new task...' }}"
+    required
+  />
+  <div class="form-actions">
+    <button type="submit" class="primary">
+      {{ editingTask ? 'Save' : 'Add' }}
+    </button>
+    <button type="button" class="secondary" *ngIf="editingTask" (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+</form>
